@@ -69,6 +69,7 @@ export const compileMDXWithCustomOptions = async (
     getNode,
     getNodesByType,
     pathPrefix,
+    basePath,
     reporter,
     cache,
     store,
@@ -77,7 +78,8 @@ export const compileMDXWithCustomOptions = async (
     customOptions: Partial<IMdxPluginOptions>
     getNode: NodePluginArgs["getNode"]
     getNodesByType: NodePluginArgs["getNodesByType"]
-    pathPrefix: string
+    pathPrefix: NodePluginArgs["pathPrefix"]
+    basePath: NodePluginArgs["basePath"]
     reporter: NodePluginArgs["reporter"]
     cache: NodePluginArgs["cache"]
     store: NodePluginArgs["store"]
@@ -96,6 +98,7 @@ export const compileMDXWithCustomOptions = async (
     getNode,
     getNodesByType,
     pathPrefix,
+    basePath,
     reporter,
     cache,
     store,

@@ -17,6 +17,7 @@ interface IHelpers {
   getNode: NodePluginArgs["getNode"]
   getNodesByType: NodePluginArgs["getNodesByType"]
   pathPrefix: NodePluginArgs["pathPrefix"]
+  basePath: NodePluginArgs["basePath"]
   reporter: NodePluginArgs["reporter"]
   cache: GatsbyCache
   store: Store
@@ -71,10 +72,10 @@ export const enhanceMdxOptions: EnhanceMdxOptions = async (
   options.mdxOptions.remarkPlugins.push(remarkUnwrapImages)
 
   // Inject Gatsby path prefix if needed
-  if (helpers.pathPrefix) {
+  if (helpers.basePath) {
     options.mdxOptions.remarkPlugins.push([
       remarkPathPlugin,
-      { pathPrefix: helpers.pathPrefix },
+      { pathPrefix: helpers.basePath },
     ])
   }
 

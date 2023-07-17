@@ -3,7 +3,8 @@ import { createProcessor } from "@mdx-js/mdx"
 import { getSourcePluginsAsRemarkPlugins } from "../get-source-plugins-as-remark-plugins"
 import { mockGatsbyApi } from "../__fixtures__/test-utils"
 
-const { getNode, getNodesByType, reporter, cache, pathPrefix } = mockGatsbyApi()
+const { getNode, getNodesByType, reporter, cache, pathPrefix, basePath } =
+  mockGatsbyApi()
 
 describe(`transform gatsby-remark plugins into regular plugins`, () => {
   it(`skips on non-functionals`, async () => {
@@ -20,6 +21,7 @@ describe(`transform gatsby-remark plugins into regular plugins`, () => {
         reporter,
         cache,
         pathPrefix,
+        basePath,
       })
     ).resolves.toHaveLength(0)
   })
@@ -38,6 +40,7 @@ describe(`transform gatsby-remark plugins into regular plugins`, () => {
       reporter,
       cache,
       pathPrefix,
+      basePath,
     })
     expect(plugins).toHaveLength(1)
     if (plugins === undefined) {

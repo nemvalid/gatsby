@@ -24,6 +24,7 @@ export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] =
       getNode,
       getNodesByType,
       pathPrefix,
+      basePath,
       reporter,
       cache,
       store,
@@ -36,6 +37,7 @@ export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] =
       getNode,
       getNodesByType,
       pathPrefix,
+      basePath,
       reporter,
       cache,
       store,
@@ -106,7 +108,16 @@ export const resolvableExtensions: GatsbyNode["resolvableExtensions"] = (
  * Convert MDX to JSX so that Gatsby can extract the GraphQL queries and render the pages.
  */
 export const preprocessSource: GatsbyNode["preprocessSource"] = async (
-  { filename, getNode, getNodesByType, pathPrefix, reporter, cache, store },
+  {
+    filename,
+    getNode,
+    getNodesByType,
+    pathPrefix,
+    basePath,
+    reporter,
+    cache,
+    store,
+  },
   pluginOptions
 ) => {
   const options = defaultOptions(pluginOptions)
@@ -121,6 +132,7 @@ export const preprocessSource: GatsbyNode["preprocessSource"] = async (
     getNode,
     getNodesByType,
     pathPrefix,
+    basePath,
     reporter,
     cache,
     store,
@@ -156,6 +168,7 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
       getNode,
       getNodesByType,
       pathPrefix,
+      basePath,
       reporter,
       cache,
       actions,
@@ -208,6 +221,7 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
                   getNode,
                   getNodesByType,
                   pathPrefix,
+                  basePath,
                   reporter,
                   cache,
                   store,
@@ -258,6 +272,7 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
                   getNode,
                   getNodesByType,
                   pathPrefix,
+                  basePath,
                   reporter,
                   cache,
                   store,
